@@ -1,0 +1,90 @@
+账号:<input type="text" class="uName">
+密码:<input type="text" class="uPwd">
+<input type="button" value="登录" class="btn">
+
+<script src="javascripts/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.btn').click(function(){
+             var data = {
+                 'uName':$('.uName').val(),
+                 'uPwd':$('.uPwd').val()
+             }
+             $.post('/',data,function(data){
+                 console.log(data);
+                 if(data=='ok'){
+                     alert('登录成功');
+                     window.location.href = 'https://www.baidu.com';
+                 }else{
+                     alert('登录失败');
+                 }
+             })
+        })
+        
+    })
+   
+</script>
+{{!-- <style>
+    table{
+        width: 300px;
+        border-collapse: collapse;
+    }
+    tr,th,td{
+        border: 1px solid #ccc;
+        height: 40px;
+    }
+</style>
+<table>
+    <thead>
+        <th>账号</th>
+        <th>密码</th>
+    </thead>
+    {{#each vals}}
+        <tr>
+            <td>
+                {{this.uName}}
+            </td>
+            <td>
+                {{this.uPwd}}
+            </td>
+        </tr>
+    {{/each}}
+</table> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <h1>{{title}}</h1>
+<h3>{{name}}</h3> --}}
+
+    {{!-- <input type="text" class="uName">
+    <input type="text" class="uPwd">
+    
+    <input type="button" class="btn" value="提交数据到后台">
+
+<script src="javascripts/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.btn').click(function(){
+            
+            $.post('/',{userName:$('.uName').val(),userPwd:$('uPwd').val()},function(data){
+                alert(data);
+            });
+        })
+    });
+</script> --}}

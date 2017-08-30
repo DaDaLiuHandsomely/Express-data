@@ -1,0 +1,24 @@
+账号:<input type="text" class="uName">
+密码:<input type="text" class="uPwd">
+<input type="button" value="注册" class="register">
+<script src="javascripts/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.register').click(function(){
+            var data = {
+                'uName':$('.uName').val(),
+                'uPwd':$('.uPwd').val()
+            }
+            $.post('/register',data,function(data){
+                console.log(data);
+                if(data=='ok'){
+                     alert('注册成功');
+                     window.location.href = 'https://www.baidu.com';
+                }else{
+                     alert('注册失败');
+                }
+            })
+        })
+    })
+   
+</script>

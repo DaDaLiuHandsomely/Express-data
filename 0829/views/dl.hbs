@@ -1,0 +1,24 @@
+{{title}}
+账号：<input type="text" class="User"><br>
+密码：<input type="text" class="Password"><br>
+<input type="button" class="btn" value="登录">
+<script src="javascripts/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.btn').click(function(){
+            var data = {
+                'uName':$('.User').val(),
+                'uPwd':$('.Password').val()
+            }
+            $.post('/dl',data,function(data){
+                console.log(data);
+                if(data=='ok'){
+                    alert('登录成功');
+                    window.location.href = 'https://www.baidu.com';
+                }else{
+                    alert('登录失败');
+                }
+            })
+        })
+    })
+</script>

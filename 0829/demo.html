@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+        <input class="inp" type="text"><input type="button" value="搜索" class="btn">
+		<div></div>		
+	</body>
+</html>
+<script>
+    var btn = document.querySelector('.btn');
+    var inp = document.querySelector('.inp');
+    var div = document.querySelector('div');
+    var jsonp = document.createElement('script');
+    btn.onclick = function(){
+        var val = inp.value;
+        jsonp.src = 'https://sug.so.360.cn/suggest?callback=res&word='+val;
+        document.head.appendChild(jsonp);
+    }
+    function res(data){       
+        div.innerHTML = data.s;
+    }
+
+</script>
